@@ -1,7 +1,7 @@
 import vueRouter from 'vue-router'
-
 import Profile from './components/Profile'
 import Partners from './components/Partners'
+
 import App from './App'
 
 const router = new vueRouter({
