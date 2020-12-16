@@ -37,22 +37,7 @@
 import Registro from "./components/Registro.vue";
 export default {
   name: "App",
-  components: {
-    Registro,
-  },
-  data() {
-    return {
-      showRegistro: false,
-    };
-  },
-  methods: {
-    registro() {
-      this.showRegistro = !this.showRegistro;
-    },
-    init: function () {
-      this.$router.push({ path: "Registro" });
-    },
-  },
+  components: {},
 };
 </script>
 
