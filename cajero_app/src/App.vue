@@ -1,49 +1,135 @@
 <template>
   <div id="app">
-<div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand tag="h1" class="mb-0">
+    <div class="header">
       <img src="./assets/hotel.png" class="d-inline-block align-top" alt="hotel">
-      Hotelify
-      </b-navbar-brand>
+      <h1>Hotelify</h1>
+      <b-dropdown right size="lg" text="User" class="mb-0" variant="bg--transparent">
+        <!-- Using 'button-content' slot -->
+        <b-dropdown-item v-on:click="profile" v-if="is_auth">Profile</b-dropdown-item>
+        <b-dropdown-item v-on:click="partners" v-if="is_auth">Partners</b-dropdown-item>
+        <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+      </b-dropdown>
+    </div>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <div class="main-component">
+      <router-view></router-view>
+    </div>
 
-    <b-collapse id="nav-collapse" is-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-
-        <b-dropdown right size="lg" text="User" class="mb-0" variant="bg--transparent">
-          <!-- Using 'button-content' slot -->
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
-    <div class="main_component"></div>
+    <div class="footer">
+      <h2>Conditions of Use  -   Privacy Notice   -   Interest-Based Ads   -   © 2020, Hotelify.com</h2>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "App",
-  components: {},
-};
+  export default {
+    name: "App",
+    components: {},
+
+    data:function() {
+      return {
+        is_auth:localStorage.getItem('isAuth') || false
+      }
+    },
+  
+    methods: {
+      profile: function(){
+        if(this.$route.email != "user"){
+          let email = localStorage.getItem("current_email")
+          let ubication = localStorage.getItem("current_ubication")
+          let username = localStorage.getItem("current_username")
+          let price = localStorage.getItem("current_price")
+
+          this.$router.push({name: "user", params:{ email: email }})
+        }
+      },
+      // partners: function(){
+      //   if(this.$route.name != "user_balance"){
+      //     let username = localStorage.getItem("current_username")
+      //     this.$router.push({name: "user_balance", params:{ username: username }})
+      //   }
+      // },
+      profile: function(){
+        if(this.$route.email != "user"){
+          let email = localStorage.getItem("current_email")
+          let ubication = localStorage.getItem("current_ubication")
+          let username = localStorage.getItem("current_username")
+          let price = localStorage.getItem("current_price")
+
+          this.$router.push({name: "user", params:{ email: email }})
+        }
+      },
+    },
+
+    beforeCreate:function() {
+      localStorage.setItem('current_email','decameron@gmail.com')
+      localStorage.setItem('current_ubication','Cartagena')
+      localStorage.setItem('current_username','Decameron')
+      localStorage.setItem('current_price',250000)
+      localStorage.setItem('isAuth',true)
+
+      this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})  
+    }
+  };
 </script>
 
 <style scoped>
-img{
-  width: 60px;
-  height: 60px;
-}
-h1{
-  font-size: 40px;
-}
-.button{
-  font-size: 30px;
-}
+
+  body {
+    margin: 0 0 0 0;
+  }
+
+  .header {
+    margin: 0%;
+    padding: 0;
+    width: 100%;
+    height: 10vh;
+    min-height: 100px;
+    background-color: #4390b1;
+    color: #E5E7E9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header h1 {
+    margin: 2%;
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;  
+  }  
+
+  img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .main-component {
+    height: 75vh;
+    margin: 0%;
+    padding: 0%;
+    background: #FDFEFE;
+  }
+
+  .footer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 7vh;
+    min-height: 100px;
+    background-color: #4390b1;
+    color: #E5E7E9;
+  }
+
+ .footer h2 {
+    float: center;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;  
+    font-size: 14px;
+  }
+
 </style>
 
