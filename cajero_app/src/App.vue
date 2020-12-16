@@ -1,24 +1,28 @@
 <template>
   <div id="app">
-    <div>
-      <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-brand href="#">
-          <img src="./assets/hotel.png" class="d-inline-block align-top" alt="hotelify" />
-          Hotelify
-        </b-navbar-brand>
-        <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-        </b-navbar-nav>
-        <b-nav-item-dropdown right>
+<div>
+  <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand tag="h1" class="mb-0">
+      <img src="./assets/hotel.png" class="d-inline-block align-top" alt="hotel">
+      Hotelify
+      </b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+
+        <b-dropdown right size="lg" text="User" class="mb-0" variant="bg--transparent">
           <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar>
-    </div>
+        </b-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</div>
     <div class="main_component"></div>
   </div>
 </template>
@@ -30,13 +34,16 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+img{
+  width: 60px;
+  height: 60px;
+}
+h1{
+  font-size: 40px;
+}
+.button{
+  font-size: 30px;
 }
 </style>
+
