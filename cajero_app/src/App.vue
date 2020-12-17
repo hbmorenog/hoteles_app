@@ -1,5 +1,5 @@
 <template>
-  <div id="app" >
+  <div id="app">
     <div class="header">
       <img src="./assets/hotel.png" class="d-inline-block align-top" alt="hotel" />
       <h1>Hotelify</h1>
@@ -56,33 +56,25 @@ export default {
         this.$router.push({ name: "user_balance", params: { username: username } });
       }
     },
-    profile: function () {
-      if (this.$route.email != "user") {
-        let email = localStorage.getItem("current_email");
-        let ubication = localStorage.getItem("current_ubication");
-        let username = localStorage.getItem("current_username");
-        let price = localStorage.getItem("current_price");
+    profile: function(){
+        if(this.$route.email != "user_profile"){
+          let email = localStorage.getItem("current_email")
 
-        this.$router.push({ name: "user", params: { email: email } });
-      }
-    },
+          this.$router.push({name: "user_profile", params:{ email: email }})
+        }
+      },
     registro: function () {
       this.$router.push({ path: "/registro" });
     },
   },
+   beforeCreate:function() {
+      localStorage.setItem('current_email','decameron@gmail.com')
 
-  // beforeCreate: function () {
-  //  localStorage.setItem("current_email", "decameron@gmail.com");
-  // localStorage.setItem("current_ubication", "Cartagena");
-  // localStorage.setItem("current_username", "Decameron");
-  //localStorage.setItem("current_price", 250000);
-  //localStorage.setItem("isAuth", true);
-
-  //this.$router.push({ name: "user", params: { email: "decameron@gmail.com" } });
-  //},
+      this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})
+    }
 };
 =======
-  
+
     methods: {
       profile: function(){
         if(this.$route.email != "user_profile"){
@@ -107,7 +99,7 @@ export default {
     beforeCreate:function() {
       localStorage.setItem('current_email','decameron@gmail.com')
 
-      this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})  
+      this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})
     }
   };
 >>>>>>> 72cfcd447ab8c07aef6f95a7575291b47a8cc34c
