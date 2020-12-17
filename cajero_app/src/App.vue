@@ -39,70 +39,32 @@ export default {
   },
 
   methods: {
-    profile: function () {
-      if (this.$route.email != "user") {
-        let email = localStorage.getItem("current_email");
-        let ubication = localStorage.getItem("current_ubication");
-        let username = localStorage.getItem("current_username");
-        let price = localStorage.getItem("current_price");
+    profile: function(){
+      if(this.$route.email != "user_profile"){
+        let email = localStorage.getItem("current_email")
 
-        this.$router.push({ name: "user", params: { email: email } });
+        this.$router.push({name: "user_profile", params:{ email: email }})
       }
     },
-<<<<<<< HEAD
-    partners: function () {
+
+    partners: function () { 
       if (this.$route.name != "user_balance") {
         let username = localStorage.getItem("current_username");
         this.$router.push({ name: "user_balance", params: { username: username } });
       }
     },
-    profile: function(){
-        if(this.$route.email != "user_profile"){
-          let email = localStorage.getItem("current_email")
 
-          this.$router.push({name: "user_profile", params:{ email: email }})
-        }
-      },
     registro: function () {
       this.$router.push({ path: "/registro" });
     },
   },
-   beforeCreate:function() {
-      localStorage.setItem('current_email','decameron@gmail.com')
 
-      this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})
-    }
+  beforeCreate:function() {
+    localStorage.setItem('current_email','decameron@gmail.com')
+
+    this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})
+  }
 };
-=======
-
-    methods: {
-      profile: function(){
-        if(this.$route.email != "user_profile"){
-          let email = localStorage.getItem("current_email")
-
-          this.$router.push({name: "user_profile", params:{ email: email }})
-        }
-      },
-
-      // partners: function(){
-      //   if(this.$route.email != "user"){
-      //     let email = localStorage.getItem("current_email")
-      //     let ubication = localStorage.getItem("current_ubication")
-      //     let username = localStorage.getItem("current_username")
-      //     let price = localStorage.getItem("current_price")
-
-      //     this.$router.push({name: "user", params:{ email: email }})
-      //   }
-      // },
-    },
-
-    beforeCreate:function() {
-      localStorage.setItem('current_email','decameron@gmail.com')
-
-      this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})
-    }
-  };
->>>>>>> 72cfcd447ab8c07aef6f95a7575291b47a8cc34c
 </script>
 
 <style scoped>
