@@ -34,39 +34,27 @@
   
     methods: {
       profile: function(){
-        if(this.$route.email != "user"){
+        if(this.$route.email != "user_profile"){
           let email = localStorage.getItem("current_email")
-          let ubication = localStorage.getItem("current_ubication")
-          let username = localStorage.getItem("current_username")
-          let price = localStorage.getItem("current_price")
 
-          this.$router.push({name: "user", params:{ email: email }})
+          this.$router.push({name: "user_profile", params:{ email: email }})
         }
       },
+
       // partners: function(){
-      //   if(this.$route.name != "user_balance"){
+      //   if(this.$route.email != "user"){
+      //     let email = localStorage.getItem("current_email")
+      //     let ubication = localStorage.getItem("current_ubication")
       //     let username = localStorage.getItem("current_username")
-      //     this.$router.push({name: "user_balance", params:{ username: username }})
+      //     let price = localStorage.getItem("current_price")
+
+      //     this.$router.push({name: "user", params:{ email: email }})
       //   }
       // },
-      profile: function(){
-        if(this.$route.email != "user"){
-          let email = localStorage.getItem("current_email")
-          let ubication = localStorage.getItem("current_ubication")
-          let username = localStorage.getItem("current_username")
-          let price = localStorage.getItem("current_price")
-
-          this.$router.push({name: "user", params:{ email: email }})
-        }
-      },
     },
 
     beforeCreate:function() {
       localStorage.setItem('current_email','decameron@gmail.com')
-      localStorage.setItem('current_ubication','Cartagena')
-      localStorage.setItem('current_username','Decameron')
-      localStorage.setItem('current_price',250000)
-      localStorage.setItem('isAuth',true)
 
       this.$router.push({name: "user", params:{ email: 'decameron@gmail.com' }})  
     }

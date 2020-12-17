@@ -1,10 +1,10 @@
 <template>
     <div id="Profile">
-        <h2>Hi  <span> {{username}}, </span>  Welcome!</h2>
+        <h2>Hi  <span> {{name}} </span>,  Welcome!</h2>
         <ul>
-            <li>Ubication {{ubication}},</li>
-            <li>Email {{email}},</li>
-            <li>Price {{price}},</li>
+            <li>Ubication: {{ubication}}</li>
+            <li>Email: {{email}}</li>
+            <li>Price: {{price}}</li>
         </ul>
     </div>
 </template>
@@ -12,25 +12,34 @@
 
 
 <script>
+    import axios from 'axios';
     export default {
-        name: "Profile",
-        data:function(){
+        name: 'Profile',
+        data: function (){
             return {
-                email: "none"
+                email: "",
+                ubication: "",
+                name: "",
+                price: 0
             }
         },
 
         created: function(){
             this.email = this.$route.params.email
-            this.ubication = this.$route.params.ubication
-            this.username = this.$route.params.username
-            this.price = this.$route.params.price
+
+            let self = this
+            axios.get("http://127.0.0.1:8000/hotel/profile/" + this.email)
+                .then((result) => {
+                    self.ubication = result.data.ubication;
+                    self.name = result.data.name;
+                    self.price = result.data.price
+                })
+                .catch((error) => {
+                    alert("ERROR Servidor");
+                });
         }
     }
 </script>
-
-    
-
 
 <style>
     #Profile{
