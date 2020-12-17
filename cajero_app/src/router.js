@@ -15,13 +15,13 @@ const router = new vueRouter({
         },
 
         {
-            path: '/user/:email',
-            name: "user",
+            path: '/hotel/profile/:email',
+            name: "user_profile",
             component: Profile
         },
 
         {
-            path: '/user/partners/:email',
+            path: '/hotel/partners/:email',
             name: "user_partners",
             component: Partners
         },

@@ -1,10 +1,10 @@
 <template>
     <div id="Partners">
-        <h2>Hi  <span> {{username}}, </span>  Welcome!</h2>
+        <h2><span> {{username}} </span> 's partners list!</h2>
         <ul>
-            <li>Ubication {{ubication}},</li>
-            <li>Email {{email}},</li>
-            <li>Price {{price}},</li>
+            <li>Ubication {{ubication}}</li>
+            <li>Email {{email}}</li>
+            <li>Price {{price}}</li>
         </ul>
     </div>
 </template>
@@ -13,7 +13,7 @@
 
 <script>
     export default {
-        name: "Profile",
+        name: "Partners",
         data:function(){
             return {
                 email: "none"
@@ -33,7 +33,7 @@
 
 
 <style>
-    #Profile{
+    #Partners{
         width: 100%;
         height: 100%;
 
@@ -42,12 +42,12 @@
         align-items: center;
     }
 
-    #Profile h2{
+    #Partners h2{
         font-size: 50px;
         color: #283747;
     }
 
-    #Profile span{
+    #Partners span{
         color: crimson;
         font-weight: bold;
     }
