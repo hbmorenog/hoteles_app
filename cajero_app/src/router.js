@@ -1,7 +1,7 @@
 import vueRouter from 'vue-router'
 import Profile from './components/Profile'
 import Partners from './components/Partners'
-
+import Registro from './components/Registro'
 import App from './App'
 
 const router = new vueRouter({
@@ -25,6 +25,11 @@ const router = new vueRouter({
             name: "user_partners",
             component: Partners
         },
+        {
+            path: '/registro',
+            name: "registro",
+            component: Registro
+        }
     ]
 })
 
