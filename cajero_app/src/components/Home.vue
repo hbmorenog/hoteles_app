@@ -42,7 +42,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://127.0.0.1:8000/hoteles/resumen")
+      .get("https://https://g3m3-e9-hoteles-api.herokuapp.com//hoteles/resumen")
       .then((response) => (this.hoteles = response.data));
   },
 };
