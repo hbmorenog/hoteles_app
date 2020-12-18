@@ -79,7 +79,7 @@ export default {
     },
     submit: function () {
       axios
-        .post("http://127.0.0.1:8000/hotel/agregar", JSON.stringify(this.form))
+        .post("https://https://g3m3-e9-hoteles-api.herokuapp.com//hotel/agregar", JSON.stringify(this.form))
         .then((result) => {
           alert("Se ingreso");
         })
