@@ -28,7 +28,7 @@
             this.email = this.$route.params.email
 
             let self = this
-            axios.get("http://127.0.0.1:8000/hotel/profile/" + this.email)
+            axios.get("https://https://g3m3-e9-hoteles-api.herokuapp.com//hotel/profile/" + this.email)
                 .then((result) => {
                     self.ubication = result.data.ubication;
                     self.name = result.data.name;
